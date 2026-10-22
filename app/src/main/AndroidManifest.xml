@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.nalmatov.corevoice"
+    >
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
+        tools:ignore="ForegroundServicesPolicy" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"
+        tools:ignore="RequestInstallPackagesPolicy" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.car.permission.CONTROL_CAR_WINDOWS" />
+    <uses-permission android:name="android.car.permission.GET_CAR_VENDOR_CATEGORY_WINDOW" />
+    <uses-permission android:name="android.car.permission.SET_CAR_VENDOR_CATEGORY_WINDOW" />
+    <uses-permission android:name="android.car.permission.CAR_POWER"/>
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN"/>
+    <uses-permission android:name="android.car.permission.CAR_VENDOR_EXTENSION"/>
+<!--    <uses-permission android:name="android.permission.ACCESS_KEYMANAGER"/>-->
+    <uses-permission android:name="iauto.permission.PLATFORM_ACCESS_SERVICE"/>
+    <uses-permission android:name="iauto.permission.PLATFORM_ACCESS_RECEIVER"/>
+    <uses-permission android:name="iauto.permission.ACCESS_KEEP_SCREEN_ON_STATE"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.POPUP_DISPLAY"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.OVERLAY_DISPLAY"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.SCREEN_TRANSFER"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.SCREEN_LIGHT"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.LANUCH_SCREEN"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.APP_CONTROL"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.NAVIGATION_CONTROL"/>
+    <uses-permission android:name="com.toyota.cn.agentservice.permission.CAR_NETWORK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CoreVoice">
+        <service
+            android:name=".voice.VoiceAssistantService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CoreVoice">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
